@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 
+
 #pragma once
 /**
  * Big_integer class
@@ -19,7 +20,6 @@ private:
     // Big int to string
     std::string valueToString(unsigned long long value, bool posVal);
     
-    
     /**
      * std::cin >> and std::cout << big integer
      * Write with text file
@@ -27,6 +27,8 @@ private:
     friend std::istream & operator >> (std::istream & stream, Big_integer& bigIntValue);
     friend std::ostream & operator << (std::ostream & stream, Big_integer& bigIntValue);
 
+    char* oneComplement(char* inputPtr);
+    char* twoComplement(char* inputPtr);
 
 public:
     /**
@@ -43,9 +45,18 @@ public:
      * Overload operator
      */
     Big_integer& operator + (Big_integer const& obj);
-    Big_integer& operator-(Big_integer const& obj);
 
-    Big_integer& operator*(Big_integer const& obj);
+    Big_integer& operator - (Big_integer const& obj);
 
+    Big_integer& operator * (Big_integer const& obj);
+
+    Big_integer& operator / (Big_integer const& obj);
+
+
+    /**
+     * Functions return pointer that point to 128 bit number that in little-endian and big-endian 
+     */
+    char* littleEndian();
+    char* bigEndian();
 };
 

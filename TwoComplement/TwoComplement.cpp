@@ -20,35 +20,17 @@ std::string decToBin(unsigned char inputNumber) {
     return binResult;
 }
 
-std::string oneComplement(unsigned char inputNumber) {
-    std::string oneComp = decToBin(inputNumber);
-
-    for (int i = 0; i < oneComp.length(); i++) {
-        if (oneComp[i] == '0')
-            oneComp[i] = '1';
-        else
-            oneComp[i] = '0';
-    }
-
-    return oneComp;
+unsigned char oneComplement(unsigned char inputNumber) {
+    for (int i = 0; i < 8; i++)
+        inputNumber = (inputNumber ^ (1 << i));
+    
+    return inputNumber;
 }
 
-std::string twoComplement(unsigned char inputNumber) {
-    std::string oneComp = oneComplement(inputNumber);
-    std::string twoComp = oneComp;
 
-    bool carry = 1;
-
-    for (int i = twoComp.length() - 1; (i >= 0) && (carry == 1); i--) {
-
-        if (twoComp[i] == '1')
-            twoComp[i] = '0';
-        else {
-            twoComp[i] = '1';
-            carry = 0;
-        }
-    }
-    return twoComp;
+unsigned char twoComplement(unsigned char inputNumber) {
+    unsigned char oneComp = oneComplement(inputNumber);
+    return oneComp + 1;
 }
 
 
@@ -56,7 +38,7 @@ std::string* listTwoComplement(unsigned char* numberList, unsigned char listLeng
     std::string* result = new std::string[listLength];
 
     for (int i = 0; i < listLength; i++) {
-        result[i] = twoComplement(numberList[i]);
+        result[i] = decToBin(twoComplement(numberList[i]));
     }
 
     return result;
