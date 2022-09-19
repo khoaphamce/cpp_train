@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-
+#include <vector>
+#include <stack>
 
 #pragma once
 /**
@@ -30,6 +31,18 @@ private:
     char* oneComplement(char* inputPtr);
     char* twoComplement(char* inputPtr);
 
+
+    /**
+     * Check if the input is arithmetic 
+     */
+    static int isArith(char inputChar);
+
+
+    /**
+     * Turn polish reverse notation string to vector
+     */
+    static std::vector <std::string> strToPost(std::string inFix);
+
 public:
     /**
      * Constructor 
@@ -40,17 +53,27 @@ public:
         this->posVal = posVal;
         this->digits = this->valueToString(number, posVal);
     }
+    Big_integer(std::string inpStr) {
+        this->posVal = 1;
+        if (inpStr[0] == '-') {
+            this->posVal = 0;
+            inpStr.erase(inpStr[0], inpStr[1]);
+        }
+
+        this->value = std::stoull(inpStr);
+    }
 
     /**
      * Overload operator
      */
     Big_integer& operator + (Big_integer const& obj);
-
     Big_integer& operator - (Big_integer const& obj);
-
     Big_integer& operator * (Big_integer const& obj);
-
     Big_integer& operator / (Big_integer const& obj);
+    bool operator > (Big_integer const& obj);
+    bool operator < (Big_integer const& obj);
+    bool operator == (Big_integer const& obj);
+    bool operator != (Big_integer const& obj);
 
 
     /**
@@ -58,5 +81,11 @@ public:
      */
     char* littleEndian();
     char* bigEndian();
+
+    /**
+     * Calculate using input notation
+     */
+
+    static Big_integer calculate(std::string expression);
 };
 
