@@ -4,13 +4,17 @@
 int main() {
     Avl tree;
 
-    tree.insertion(25);
-    tree.insertion(22);
+    tree.insertion(50);
+    tree.insertion(60);
+    tree.insertion(65);
+    tree.insertion(63);
+    tree.insertion(72);
+    tree.insertion(90);
+    tree.insertion(20);
     tree.insertion(23);
-    tree.insertion(24);
-    tree.insertion(29);
-    tree.insertion(26);
-    tree.insertion(30);
+    tree.insertion(10);
+    tree.insertion(15);
+    
 
     tree.display();
 

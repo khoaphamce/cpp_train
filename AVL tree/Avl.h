@@ -35,10 +35,10 @@ private:
     /**
      * Rotation methods
      */
-    void rightRotate(Node* rootNode);
-    void leftRotate(Node* rootNode);
-    void leftRightRotate(Node* rootNode);
-    void rightLeftRotate(Node* rootNode);
+    Node* rightRotate(Node* rootNode);
+    Node* leftRotate(Node* rootNode);
+    Node* leftRightRotate(Node* rootNode);
+    Node* rightLeftRotate(Node* rootNode);
 
     /**
      * Height and balance factor

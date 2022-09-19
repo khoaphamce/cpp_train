@@ -14,40 +14,48 @@ Avl::Avl(int value) {
 /**
  * Rotation methods
  */
-void Avl::rightRotate(Node* rootNode) {
+Avl::Node* Avl::rightRotate(Node* rootNode) {
     Node* newRoot = rootNode->pLeft;
-    if (newRoot == NULL) return;
+    if (newRoot == NULL) return NULL;
 
     Node* rightChild = newRoot->pRight;
 
     newRoot->pRight = rootNode;
     rootNode->pLeft = rightChild;
+
+    return newRoot;
 }
 
-void Avl::leftRotate(Node* rootNode) {
+Avl::Node* Avl::leftRotate(Node* rootNode) {
     Node* newRoot = rootNode->pRight;
-    if (newRoot == NULL) return;
+    if (newRoot == NULL) return NULL;
 
     Node* leftChild = newRoot->pLeft;
 
     newRoot->pLeft = rootNode;
     rootNode->pRight = leftChild;
+
+    return newRoot;
 }
 
-void Avl::leftRightRotate(Node* rootNode) {
+Avl::Node * Avl::leftRightRotate(Node* rootNode) {
     if (rootNode->pLeft == NULL)
-        return;
+        return NULL;
 
-    leftRotate(rootNode->pLeft);
-    rightRotate(rootNode);
+    rootNode->pLeft = leftRotate(rootNode->pLeft);
+    rootNode = rightRotate(rootNode);
+
+    return rootNode;
 }
 
-void Avl::rightLeftRotate(Node* rootNode) {
+Avl::Node * Avl::rightLeftRotate(Node* rootNode) {
     if (rootNode->pRight == NULL)
-        return;
+        return NULL;
 
-    rightRotate(rootNode->pRight);
-    leftRotate(rootNode);
+    rootNode->pRight = rightRotate(rootNode->pRight);
+    rootNode = leftRotate(rootNode);
+
+    return rootNode;
 }
 
 
@@ -75,6 +83,7 @@ int Avl::balanceFactor(Node* rootNode) {
 Avl::Node * Avl::insertRec(Node* rootNode, int value) {
     if (rootNode == NULL) {
         rootNode = new Node(value);
+        display();
         return rootNode;
     }
     else if ((rootNode->value) > value) {
@@ -83,16 +92,42 @@ Avl::Node * Avl::insertRec(Node* rootNode, int value) {
     else{
         rootNode->pRight = insertRec(rootNode->pRight, value);
     }
+
+    // left-left
+    if (balanceFactor(rootNode) == 2 && balanceFactor(rootNode->pLeft) == 1) {
+        rootNode = rightRotate(rootNode);
+        display();
+    }
+    // left-right
+    else if (balanceFactor(rootNode) == 2 && balanceFactor(rootNode->pLeft) == -1) {
+        rootNode = leftRightRotate(rootNode);
+        display();
+    }
+    // right-right
+    else if (balanceFactor(rootNode) == -2 && balanceFactor(rootNode->pRight) == -1) {
+        rootNode = leftRotate(rootNode);
+        display();
+    }
+    // right-left
+    else if (balanceFactor(rootNode) == -2 && balanceFactor(rootNode->pRight) == 1) {
+        rootNode = rightLeftRotate(rootNode);
+        display();
+    }
+
     return rootNode;
 }
 
 bool Avl::insertion(int value) {
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << std::endl;
+    std::cout << "Add: " << value << std::endl;
     root = insertRec(root, value);
     return 1;
 }
 
 
 void Avl::display() {
+    std::cout << "----------------------------------------" << std::endl;
     displayRec(root, 0);
     std::cout << std::endl;
 }
