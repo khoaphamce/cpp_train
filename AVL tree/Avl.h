@@ -8,7 +8,7 @@
 
 class Avl
 {
-private:
+public:
     /**
      * struct Node for tree
      */
@@ -26,7 +26,7 @@ private:
             Node* pRight = NULL;
         };
     };
-
+private:
     /**
      * Tree data 
      */
@@ -49,8 +49,10 @@ private:
     /**
      * Recursion methods for tree
      */
-    Node * insertRec(Node* rootNode, int value);
-
+    Node* insertRec(Node* rootNode, int value);
+    Node* deleteRec(Node* rootNode, int value);
+    Node* searchRec(Node* rootNode, int value);
+    Node* minNode(Node* rootNode);
     void displayRec(Node* rootNode, int level = 0);
 
 public:
@@ -63,9 +65,9 @@ public:
     /**
      * Methods for tree
      */
-    bool insertion(int value);
-    bool deletion(int value);
-    bool search(int value);
+    void insertion(int value);
+    void deletion(int value);
+    Node* search(int value);
 
     void display();
 };
