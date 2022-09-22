@@ -1,10 +1,13 @@
+#pragma once
+
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <vector>
 #include <stack>
+#include <stdint.h>
 
-#pragma once
+
 /**
  * Big_integer class
  * Detail: 128 bit, signed integer
