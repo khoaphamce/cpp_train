@@ -139,15 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="b593_606.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="b1.h" />
     <ClInclude Include="b117.h" />
+    <ClInclude Include="b158.h" />
+    <ClInclude Include="b166.h" />
     <ClInclude Include="b39.h" />
     <ClInclude Include="b115.h" />
+    <ClInclude Include="b593_606.h" />
     <ClInclude Include="b703.h" />
     <ClInclude Include="b707.h" />
+    <ClInclude Include="b776.h" />
+    <ClInclude Include="b777.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
