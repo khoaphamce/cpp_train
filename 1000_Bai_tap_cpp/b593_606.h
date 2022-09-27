@@ -6,6 +6,10 @@
 #include <stdexcept>
 #include <cmath>
 
+namespace b593_606 {
+    void execute();
+}
+
 class Date {
 protected:
     int day = 1;

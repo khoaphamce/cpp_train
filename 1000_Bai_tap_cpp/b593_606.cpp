@@ -370,3 +370,40 @@ bool Date::operator <= (Date const& obj) {
     else
         return false;
 }
+
+void b593_606::execute() {
+    std::string dateInput;
+    std::string compareDate;
+    int nNext;
+    int nPrev;
+
+    std::cout << "Type in date (day/month/year format): ";
+    std::cin >> dateInput;
+    Date myDate(dateInput);
+
+    std::cout << "Type in n for n next day: ";
+    std::cin >> nNext;
+
+    std::cout << "Type in n for n previous day: ";
+    std::cin >> nPrev;
+
+    std::cout << "Type in date to compare (day/month/year format): ";
+    std::cin >> compareDate;
+    Date myDateCompare(compareDate);
+
+    std::cout << "\n\n";
+
+    std::cout << "Date entered in (day/month/year format): " << myDate.toString() << "\n\n";
+    std::cout << "Leap year check: " << myDate.isLeapYear() << "\n\n";
+    std::cout << "Order of date in year: " << myDate.dayCount() << "\n\n";
+    std::cout << "Order of date from 1/1/1: " << myDate.dayCountAllOne() << "\n\n";
+    std::cout << "Towmorrow: " << myDate.nextDay().toString() << "\n\n";
+    std::cout << "Yesterday: " << myDate.previousDay().toString() << "\n\n";
+    std::cout << "Next " << nNext << " day: " << myDate.nextDay(nNext).toString() << "\n\n";
+    std::cout << "Back " << nPrev << " day: " << myDate.previousDay(nPrev).toString() << "\n\n";
+    std::cout << myDate.toString() << " > " << myDateCompare.toString() << ": " << (myDate > myDateCompare) << "\n\n";
+    std::cout << myDate.toString() << " >= " << myDateCompare.toString() << ": " << (myDate >= myDateCompare) << "\n\n";
+    std::cout << myDate.toString() << " < " << myDateCompare.toString() << ": " << (myDate < myDateCompare) << "\n\n";
+    std::cout << myDate.toString() << " <= " << myDateCompare.toString() << ": " << (myDate <= myDateCompare) << "\n\n";
+    std::cout << myDate.toString() << " == " << myDateCompare.toString() << ": " << (myDate == myDateCompare) << "\n\n";
+}

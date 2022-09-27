@@ -21,6 +21,9 @@
     <ClCompile Include="b593_606.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="b927.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="b1.h">
@@ -54,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="b593_606.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b927.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b306.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
