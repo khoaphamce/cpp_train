@@ -31,6 +31,12 @@
 // Search, Dynamic programming
 #include "b306.h"
 
+// Linked list
+#include "b824.h"
+
+// Sort 
+#include "b255.h"
+
 int main() {
     std::vector<void (*) ()> executeList = {
         (b1::execute),
@@ -52,7 +58,11 @@ int main() {
 
         (b927::execute),
 
-        (b306::execute)
+        (b306::execute),
+
+        (b824::execute),
+
+        (b255::execute)
     };
 
     std::vector<std::string> nameList = {
@@ -75,7 +85,11 @@ int main() {
 
         "Tree, file, struct - 927",
 
-        "Search, Dynamic programming - 306"
+        "Search, Dynamic programming - 306",
+
+        "Linked list - 824",
+
+        "Sort - 255"
     };
 
     int choice;

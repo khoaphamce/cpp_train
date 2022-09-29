@@ -24,6 +24,9 @@
     <ClCompile Include="b927.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="b824.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="b1.h">
@@ -63,6 +66,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="b306.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b824.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="b255.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
