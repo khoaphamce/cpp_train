@@ -37,6 +37,9 @@
 // Sort 
 #include "b255.h"
 
+// Hash table
+#include "HashTable.h"
+
 int main() {
     std::vector<void (*) ()> executeList = {
         (b1::execute),
@@ -62,7 +65,9 @@ int main() {
 
         (b824::execute),
 
-        (b255::execute)
+        (b255::execute),
+
+        (HashTable_h::execute)
     };
 
     std::vector<std::string> nameList = {
@@ -89,7 +94,9 @@ int main() {
 
         "Linked list - 824",
 
-        "Sort - 255"
+        "Sort - 255",
+
+        "Hash table"
     };
 
     int choice;
